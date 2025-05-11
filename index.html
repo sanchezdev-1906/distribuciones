@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/typescript.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Calculadora de Distribuciones</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Calculadora de Distribuciones</h1>
+      <div class="selector">
+        <div>
+          <p>Distribución</p>
+          <select id="dis-select">
+            <option value="binomial">Binomial</option>
+            <option value="poisson">Poisson</option>
+            <option value="hipergeometrica">Hipergeométrica</option>
+          </select>
+        </div>
+        <div>
+          <label for="decimals">Decimales</label>
+          <input type="number" id="decimals" value="10" min="0" />
+        </div>
+      </div>
+      <div class="hidden" id="binomial">
+        <div class="valores">
+          <div class="valor">
+            <p class="valor-descripcion" title="Porcentaje de éxito">\[p\]</p>
+            <input id="bp" type="number" />
+          </div>
+          <div class="valor">
+            <p class="valor-descripcion" title="Número de intentos">\[n\]</p>
+            <input id="bn" type="number" />
+          </div>
+          <div class="valor">
+            <p class="valor-descripcion" title="Número de éxitos deseados">
+              \[k\]
+            </p>
+            <input id="bk" type="number" />
+          </div>
+          <button id="bbtn">Calcular</button>
+        </div>
+      </div>
+      <div class="hidden" id="poisson">
+        <div class="valores">
+          <div class="valor">
+            <p
+              class="valor-descripcion"
+              title="Tasa de ocurrencia promedio por intervalo"
+              aria-hidden="true"
+            >
+              \[\lambda\]
+            </p>
+            <input id="pl" type="number" />
+          </div>
+          <div class="valor">
+            <p class="valor-descripcion" title="Número de eventos deseado">
+              \[k\]
+            </p>
+            <input id="pk" type="number" />
+          </div>
+          <button id="pbtn">Calcular</button>
+        </div>
+      </div>
+
+      <div class="hidden" id="hipergeometrica">
+        <div class="valores">
+          <div class="valor">
+            <p class="valor-descripcion" title="Tamaño de la población">
+              \[N\]
+            </p>
+            <input id="hN" type="number" />
+          </div>
+          <div class="valor">
+            <p
+              class="valor-descripcion"
+              title="Número de éxitos en la población"
+            >
+              \[K\]
+            </p>
+            <input id="hK" type="number" />
+          </div>
+          <div class="valor">
+            <p class="valor-descripcion" title="Tamaño de la muestra">\[n\]</p>
+            <input id="hn" type="number" />
+          </div>
+          <div class="valor">
+            <p class="valor-descripcion" title="Éxitos deseados en la muestra">
+              \[k\]
+            </p>
+            <input id="hk" type="number" />
+          </div>
+          <button id="hbtn">Calcular</button>
+        </div>
+      </div>
+
+      <p id="errors"></p>
+      <p id="form"></p>
+      <p id="result"></p>
+    </div>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
